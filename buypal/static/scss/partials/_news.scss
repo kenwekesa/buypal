@@ -1,0 +1,194 @@
+.news_page
+{
+body::before {
+    display: block;
+    content: "";
+    height: 60px;
+  }
+  
+  .enrol {
+    border-radius: 0;
+  }
+  
+  .belownav_div {
+    background-image: url("../images/rand2.jpg");
+    background-size: 100% 100%;
+    height: 20rem;
+    background-repeat: no-repeat;
+
+
+
+   h1{
+       z-index: 100;
+       position: relative;
+   }
+
+   .container{
+     position: relative;
+     min-width: 100%;
+     height: 100%;
+     margin-left: 0;
+     margin-right: 0;
+   }
+
+   .news_title
+   {
+     align-items: center;
+     justify-content: center;
+   }
+      
+       //change display on mobile
+       @include responsive($mobile_size) {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        
+    }
+  }
+  
+  #overlay {
+    position: absolute; /* Sit on top of the page content */
+  
+    width: 100%; /* Full width (cover the whole page) */
+    top: 0;
+    left: 0;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+
+    
+  }
+  
+  .cont {
+    z-index: 3;
+  }
+  
+  .news_cards
+  {
+      .card 
+      {
+          flex-direction: column;
+
+    
+    }
+  }
+  
+  .card_section {
+    margin-top: 1;
+
+    .container{
+      padding:0;
+      margin: 0;
+      min-width: 100%;
+    }
+  }
+  
+  .card-image-top {
+    width: 100%;
+    height: 25vw;
+    object-fit: cover;
+  }
+  
+  .text_content{
+      position: absolute;
+      top: 45% !important;
+      left: 45% !important;
+  }
+  .text_content h1 {
+    font-size: 40px;
+  }
+  
+  .text_content p {
+    font-size: 28px;
+
+  }
+
+  #navmenu li
+  {
+    @include responsive($mobile_size) {
+      font-size: 50;
+      
+  }
+  }
+  
+  #navmenu a:hover {
+    box-shadow: inset 0 -3px 0 0 orange;
+  }
+  
+  @media only screen and (max-width: 900px) {
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .card_section {
+      margin-top: -2rem;
+    }
+  
+    .btn-signup {
+      margin-right: 2px;
+      color: white;
+      border-radius: 0;
+      margin-bottom: 2rem;
+    }
+  }
+  
+
+
+
+
+.btn-login, .btn-signup {
+  @include responsive($mobile_size) {
+      width: 100%;
+      
+  }
+
+  
+}
+
+.hide_on_mobile {
+  @include responsive($tablet_size) {
+      display: none;
+      
+  }
+
+  
+}
+
+.upper_image
+  {
+    overflow: visible;
+  }
+
+  .hide
+  {
+    display: none;
+  }
+
+
+ 
+
+  
+
+
+  .image_card2 {
+    flex-direction: row;
+    height: auto;
+
+    img {
+      width: 45%;
+    }
+    
+
+    @include responsive($mobile_size) {
+      flex-direction: column;
+
+      img {
+        width: 100%;
+      }
+  
+  }
+}
+
+}  
+  

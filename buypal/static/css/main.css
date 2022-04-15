@@ -1,0 +1,843 @@
+body::before {
+  display: block;
+  content: "";
+  height: 60px;
+}
+
+.enrol {
+  border-radius: 0;
+}
+
+.belownav {
+  background-color: #eaf9fa;
+  background-blend-mode: multiply;
+  background-size: 100% 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  padding-bottom: 40px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+}
+
+@media (max-width: 620px) {
+  .belownav {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+#ovesrlay {
+  position: fixed;
+  /* Sit on top of the page content */
+  width: 100%;
+  /* Full width (cover the whole page) */
+  height: 100%;
+  /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Black background with opacity */
+  z-index: 2;
+  /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer;
+  /* Add a pointer on hover */
+}
+
+.cont {
+  z-index: 3;
+}
+
+.btn-signup, .btn-login {
+  width: 23%;
+  margin-right: 5px;
+  color: white;
+  border-radius: 0;
+  margin-bottom: 2rem;
+}
+
+.card_section {
+  margin-top: 1;
+}
+
+.card-image-top {
+  width: 100%;
+  height: 25vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.text_content h1 {
+  font-size: 40px;
+  color: #3a3838;
+}
+
+.text_content p {
+  font-size: 28px;
+  color: #464141;
+}
+
+@media (max-width: 620px) {
+  #navmenu li {
+    font-size: 50;
+  }
+}
+
+#navmenu a:hover {
+  -webkit-box-shadow: inset 0 -3px 0 0 orange;
+          box-shadow: inset 0 -3px 0 0 orange;
+}
+
+@media only screen and (max-width: 600px) {
+  .card_section {
+    margin-top: -2rem;
+  }
+  .btn-signup {
+    margin-right: 2px;
+    color: white;
+    border-radius: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .btn-login, .btn-signup {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hide_on_mobile {
+    display: none;
+  }
+}
+
+.upper_image {
+  overflow: visible;
+}
+
+.hide {
+  display: none;
+}
+
+.content_cards1 {
+  margin: auto;
+}
+
+.picsection1 {
+  background-image: url("../images/crypto.jpg");
+  background-size: 100% 100%;
+  height: 20em;
+  background-repeat: no-repeat;
+  padding-bottom: 40px;
+}
+
+.text_first_content {
+  border-left: orange solid 15px;
+  padding-left: 19px;
+}
+
+.text_first_content h3 {
+  color: orange !important;
+  font-size: 100px;
+}
+
+.text_first_content p {
+  font-size: 40px;
+}
+
+.image_card2 {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: auto;
+}
+
+.image_card2 img {
+  width: 45%;
+}
+
+@media (max-width: 620px) {
+  .image_card2 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .image_card2 img {
+    width: 100%;
+  }
+}
+
+.sidebar {
+  background: #200450;
+  width: 15%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+
+.main-content {
+  margin-left: 15%;
+  margin-top: 7px;
+}
+
+.main-content header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: 1px 2px 2px 3px #ccc;
+          box-shadow: 1px 2px 2px 3px #ccc;
+  width: 100%;
+  padding-left: 14px;
+  padding-right: 40px;
+  height: 60px;
+  padding-top: 10px;
+}
+
+.main-content header span {
+  margin-right: 9px;
+}
+
+.main-content header h3 {
+  color: #e00774;
+}
+
+.sidebar-brand {
+  padding: 1rem 0rem 1rem 1rem;
+  height: 70px;
+  color: #fff;
+}
+
+.sidebar-menu li {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.sidebar-menu a {
+  display: block;
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 4px;
+}
+
+.sidebar-menu a.active {
+  background: #fff;
+  color: #200450;
+}
+
+.sidebar-menu span {
+  display: inline-block;
+  padding-right: 1rem;
+}
+
+.search-wrapper {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 20%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow-x: hidden;
+}
+
+.search-wrapper input {
+  height: 100%;
+  padding: .5rem;
+  border: none;
+  outline: none;
+}
+
+.search-wrapper span {
+  display: inline-block;
+  padding: 0rem 1rem;
+  font-size: 1.6rem;
+}
+
+.user-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 53px;
+  /* Style The Dropdown Button */
+  /* The container <div> - needed to position the dropdown content */
+  /* Dropdown Content (Hidden by Default) */
+  /* Links inside the dropdown */
+  /* Change color of dropdown links on hover */
+  /* Show the dropdown menu on hover */
+}
+
+.user-wrapper img {
+  border-radius: 50%;
+  margin-right: 9px;
+}
+
+.user-wrapper span {
+  font-size: 35px;
+  color: #0b6bb9;
+}
+
+.user-wrapper .username {
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+.user-wrapper .dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.user-wrapper .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-wrapper .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.user-wrapper .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.user-wrapper .dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.user-wrapper:hover .dropdown-content {
+  display: block;
+}
+
+.cards-row, .cards-row2 {
+  padding-left: 22px;
+  padding-top: 55px;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.cards-row .card, .cards-row2 .card {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #e00774;
+  color: #fff;
+  height: 75px;
+}
+
+.cards-row .card *, .cards-row2 .card * {
+  margin: auto;
+}
+
+.cards-row .card span, .cards-row2 .card span {
+  margin-left: 10px;
+}
+
+.cards-row .card .active, .cards-row2 .card .active {
+  background: #200450;
+}
+
+.cards-row2 .card {
+  background: #fff;
+  -webkit-box-shadow: 1px 1px 1px 1px #ccc;
+          box-shadow: 1px 1px 1px 1px #ccc;
+  color: #e00774;
+  height: 420px;
+}
+
+.login_page * {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.login_page body {
+  background: url("../images/moneyback4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'open sans', sans-serif;
+}
+
+.login_page .forms {
+  background: #fff;
+  -webkit-box-shadow: 0 0 3px #000;
+          box-shadow: 0 0 3px #000;
+  margin: 30px auto;
+  max-width: 500px;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+}
+
+.login_page .forms h1 {
+  padding: 0 0 20px 0;
+  font-size: 26px;
+  color: #666;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.login_page .forms form {
+  padding: 30px;
+}
+
+.login_page #signup {
+  display: none;
+}
+
+.login_page .forms .tab-group {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.login_page .forms .tab-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.login_page .forms .tab-group li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  background: #e5e6e7;
+  color: #888;
+  font-size: 20px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  border-top: 3px solid transparent;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.login_page .forms .tab-group li a:hover {
+  background: #dedfdf;
+  color: #666;
+}
+
+.login_page .forms .tab-group .active a {
+  background: #fff;
+  color: #444;
+  border-top: 1px solid #0d0144;
+  border-bottom: 3px solid #0d0144;
+}
+
+.login_page .forms input {
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  color: #666;
+  border-radius: 0;
+  margin-bottom: 10px;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.login_page .forms input:focus {
+  outline: 0;
+  border-color: #2e5ed7;
+}
+
+.login_page .forms label {
+  font-size: 16px;
+  font-weight: normal;
+  color: #666;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.login_page .forms .button {
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: #0d0144;
+  color: #ffffff;
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.login_page .forms .button:hover, .login_page .button:focus {
+  background: #4f09f1;
+}
+
+.login_page .text-p {
+  text-align: right;
+}
+
+.login_page .text-p a {
+  color: #1383ea;
+}
+
+.signup_page * {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.signup_page body {
+  background: url("../images/moneyback4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'open sans', sans-serif;
+}
+
+.signup_page .forms {
+  background: #fff;
+  -webkit-box-shadow: 0 0 3px #000;
+          box-shadow: 0 0 3px #000;
+  margin: 30px auto;
+  max-width: 500px;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+}
+
+.signup_page .forms h1 {
+  padding: 0 0 20px 0;
+  font-size: 26px;
+  color: #666;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.signup_page .forms form {
+  padding: 30px;
+}
+
+.signup_page #login {
+  display: none;
+}
+
+.signup_page .forms .tab-group {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.signup_page .forms .tab-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.signup_page .forms .tab-group li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  background: #e5e6e7;
+  color: #888;
+  font-size: 20px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  border-top: 3px solid transparent;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.signup_page .forms .tab-group li a:hover {
+  background: #dedfdf;
+  color: #666;
+}
+
+.signup_page .forms .tab-group .active a {
+  background: #fff;
+  color: #444;
+  border-top: 1px solid #0d0144;
+  border-bottom: 3px solid #0d0144;
+}
+
+.signup_page .forms input {
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  color: #666;
+  border-radius: 0;
+  margin-bottom: 10px;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.signup_page .forms input:focus {
+  outline: 0;
+  border-color: #2e5ed7;
+}
+
+.signup_page .forms label {
+  font-size: 16px;
+  font-weight: normal;
+  color: #666;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.signup_page .forms .button {
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: #0d0144;
+  color: #ffffff;
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.signup_page .forms .button:hover, .signup_page .button:focus {
+  background: #4f09f1;
+}
+
+.signup_page .text-p {
+  text-align: right;
+}
+
+.signup_page .text-p a {
+  color: #1383ea;
+}
+
+.news_page body::before {
+  display: block;
+  content: "";
+  height: 60px;
+}
+
+.news_page .enrol {
+  border-radius: 0;
+}
+
+.news_page .belownav_div {
+  background-image: url("/static/images/media/rand2.jpg");
+  background-size: 100% 100%;
+  height: 20rem;
+  background-repeat: no-repeat;
+}
+
+.news_page .belownav_div h1 {
+  z-index: 100;
+  position: relative;
+}
+
+.news_page .belownav_div .container {
+  position: relative;
+  min-width: 100%;
+  height: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.news_page .belownav_div .news_title {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 620px) {
+  .news_page .belownav_div {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.news_page #overlay {
+  position: absolute;
+  /* Sit on top of the page content */
+  width: 100%;
+  /* Full width (cover the whole page) */
+  top: 0;
+  left: 0;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* Black background with opacity */
+  z-index: 2;
+  /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer;
+  /* Add a pointer on hover */
+}
+
+.news_page .cont {
+  z-index: 3;
+}
+
+.news_page .news_cards .card {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.news_page .card_section {
+  margin-top: 1;
+}
+
+.news_page .card_section .container {
+  padding: 0;
+  margin: 0;
+  min-width: 100%;
+}
+
+.news_page .card-image-top {
+  width: 100%;
+  height: 25vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.news_page .text_content {
+  position: absolute;
+  top: 45% !important;
+  left: 45% !important;
+}
+
+.news_page .text_content h1 {
+  font-size: 40px;
+}
+
+.news_page .text_content p {
+  font-size: 28px;
+}
+
+@media (max-width: 620px) {
+  .news_page #navmenu li {
+    font-size: 50;
+  }
+}
+
+.news_page #navmenu a:hover {
+  -webkit-box-shadow: inset 0 -3px 0 0 orange;
+          box-shadow: inset 0 -3px 0 0 orange;
+}
+
+@media only screen and (max-width: 600px) {
+  .news_page .card_section {
+    margin-top: -2rem;
+  }
+  .news_page .btn-signup {
+    margin-right: 2px;
+    color: white;
+    border-radius: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .news_page .btn-login, .news_page .btn-signup {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .news_page .hide_on_mobile {
+    display: none;
+  }
+}
+
+.news_page .upper_image {
+  overflow: visible;
+}
+
+.news_page .hide {
+  display: none;
+}
+
+.news_page .image_card2 {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: auto;
+}
+
+.news_page .image_card2 img {
+  width: 45%;
+}
+
+@media (max-width: 620px) {
+  .news_page .image_card2 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .news_page .image_card2 img {
+    width: 100%;
+  }
+}
+
+.userdash_belownav {
+  background-color: #eaf9fa;
+  height: 350px;
+}
+
+.content_cards .card:hover {
+  -webkit-box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border-radius: 0;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.content_cards .card_icon {
+  color: #23235c;
+  font-size: 60px;
+}
+/*# sourceMappingURL=main.css.map */

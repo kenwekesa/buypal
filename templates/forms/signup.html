@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% load static %}  {% load crispy_forms_tags %}
+
+{% block content %}
+
+  <div class="span4 offset4 ml-0 mr-0 mt-0 text-center" style ="top:0">
+          {% if messages %} {% for message in messages %}
+          {% if message.tags == "error" %}
+          <div class="alert alert-danger">{{ message }}</div>
+          {% else %}
+          <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+          {% endif %} {% endfor %} {% endif %}
+    </div>
+
+
+<did class="signup_page">
+<div class="forms">
+	<ul class="tab-group">
+		<li class="tab"><a href="{% url 'login' %}">Log In</a></li>
+		<li class="tab active"><a href="#signup">Sign Up</a></li>
+	</ul>
+	  <form method='post' id="signup">
+
+	  {% csrf_token %}
+	      <h1>Sign Up</h1>
+	     
+
+		 
+	        
+	       <div>{{ form.username | as_crispy_field }}</div>
+			<div>{{ form.full_name | as_crispy_field }}</div>
+	        <div>{{ form.email | as_crispy_field }}</div>
+	        <div>{{ form.password1 | as_crispy_field }}</div>
+	        <div>{{ form.password2 | as_crispy_field }}</div>
+			<input type="submit" value="Sign up" class="button" />
+
+	       
+			
+	
+	  </form>
+</div>
+</div>
+<!--
+<script type="text/javascript">
+$(document).ready(function(){
+	  $('.tab a').on('click', function (e) {
+	  e.preventDefault();
+	  
+	  $(this).parent().addClass('active');
+	  $(this).parent().siblings().removeClass('active');
+	  
+	  var href = $(this).attr('href');
+	  $('.forms > form').hide();
+	  $(href).fadeIn(500);
+	});
+});
+</script> -->
+{% endblock %}

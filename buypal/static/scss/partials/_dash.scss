@@ -1,0 +1,165 @@
+.sidebar
+{
+    background: $darkback;
+    width: 15%;
+    height: 100%;
+    top:0;
+    left:0;
+    position: fixed;
+}
+
+.main-content
+{
+    margin-left: 15%;
+    margin-top: 7px;
+   
+
+    header
+    {
+        display: flex;
+        justify-content: space-between;
+        box-shadow: 1px 2px 2px 3px #ccc;
+        width: 100%;
+        padding-left: 14px;
+        padding-right: 40px;
+        height: 60px;
+        padding-top: 10px;
+
+        span
+        {
+            margin-right: 9px;
+        }
+
+        h3{
+            color: $cards-color;
+        }
+    }
+}
+
+.sidebar-brand
+{
+    padding: 1rem 0rem 1rem 1rem;
+    height: 70px;
+    color: $plain;
+}
+
+.sidebar-menu 
+{
+    li{
+    width: 100%;
+    margin-bottom: 1rem;
+  
+   
+    }
+    a{
+        display: block;
+        color: $plain;
+        font-size: 1.2rem;
+        text-decoration: none;
+        padding: 4px;
+
+    }
+
+    a.active
+    {
+        background: $plain;
+        color: $darkback;
+
+    }
+    span{
+        display: inline-block;
+        padding-right: 1rem;
+    }
+}
+
+.search-wrapper
+{
+    border:  1px solid #ccc;
+    border-radius: 5px;
+    height: 40px;
+    display: flex;
+    width: 20%;
+    align-items: center;
+    overflow-x: hidden;
+
+    input
+    {
+        height: 100%;
+        padding: .5rem;
+        border: none;
+        outline: none;
+    }
+    span
+    {
+        display: inline-block;
+        padding: 0rem 1rem;
+        font-size: 1.6rem;
+    }
+}
+
+.user-wrapper
+{
+    display: flex;
+    align-items: center;
+    margin-left: 13px;
+
+    img{
+        border-radius: 50%;
+        margin-right: 9px;
+    }
+    span{
+        font-size: 35px;
+    }
+    
+    .username{
+        font-size: 20px;
+        margin-left: 50px;
+    }
+}
+
+
+
+
+.cards-row{
+    padding-left: 22px;
+    padding-top: 55px;
+    width: 100%;
+    justify-content: center;
+
+    .card{
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        background:$cards-color;
+        color: $plain;
+        height: 75px;
+
+        *{
+            margin:auto;
+        }
+        span{
+            margin-left: 10px;
+        }
+
+        .active{
+                background:$darkback;
+
+        }
+    }
+}
+
+.cards-row2{
+    @extend .cards-row;
+    
+
+    .card{
+        background: $plain;
+        box-shadow: 1px 1px 1px 1px #ccc;
+        color: $cards-color;
+        height: 420px;
+    }
+}
+
+
+
+

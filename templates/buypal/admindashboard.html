@@ -1,0 +1,104 @@
+{% load static %}
+<!Doctype html>
+<html>
+    <head>
+
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+   <link rel="stylesheet" type = "text/css" href="{% static 'css/main.css' %}" >
+
+    <style>
+
+            *{
+                padding:0;
+                margin:0;
+                box-sizing: border-box;
+                list-style-type: none;
+                text-decoration: none;
+            }
+            body::before
+            {
+                display: none;
+            }
+    </style>
+    </head>
+    <body>
+
+
+            <!-- Sidebar -->
+  <div class="sidebar">
+      <div class="sidebar-brand">
+         <h3> Dashboard</h3>
+      </div>
+      <div class="sidebar-menu">
+
+          <ul>
+             <li><a class="active" href=""><span class="fa fa-home"></span> Home</a></a></li>
+             <li><a href=""><span class="fa fa-id-card "></span>  Other menu</a></li>
+             <li><a href=""><span class="fa fa-id-card "></span>  Menu</a></li>
+             <li><a href=""><span class="fa fa-id-card "></span>  Menu</a></li>
+          </ul>
+      </div>
+  </div>
+  <!-- Sidebar -->
+  <!--Main content-->
+  <div class="main-content">
+      <header>
+           <h3> 
+           <label>
+              <span class="fa fa-bars"></span>
+           </lable>
+           
+           Dashboard
+           </h3>
+
+            <div class="search-wrapper">
+              <span class="fa fa-search"></span> <input type="text" placeholder="Search"/>
+            </div>
+
+           <div class="user-wrapper">
+               <!--<img src="images/crypto.jpg" height = "40" width="40" alt=""/>-->
+               <span class="fa fa-user-circle"></span>
+               <div class="username">
+                    {{user.get_username}}
+               </div>
+           </div>
+      </header>
+
+      <div class="body-content">
+      
+          <div class="row cards-row">
+             <div class="card col-md-3">
+
+               <h4>Gotch card <span class="fa fa-industry "></span></h4>
+             </div>
+             <div class="card col-md-3 active">
+                   <h4>Gotch card <span class="fa fa-cubes"></span></h4> 
+             </div>
+             <div class="card col-md-3">
+                <h4>Gotch card <span class="fa fa-life-ring"></span></h4>
+             </div>
+          </div>
+
+          <div class="row cards-row2">
+             <div class="card col-md-8">
+
+               <h4>Gotch card <span class="fa fa-industry "></span></h4>
+             </div>
+
+             <div class="card col-md-3">
+
+               <h4>Gotch card <span class="fa fa-industry "></span></h4>
+             </div>
+             
+          </div>
+      
+      </div>
+  </div>
+
+  <span class="fa fa-bar-chart "></span>
+    </body>
+</html>
