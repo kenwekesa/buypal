@@ -1,16 +1,189 @@
 body::before {
     display: block;
     content: "";
-    height: 60px;
+    height: 10px;
   }
   
   .enrol {
     border-radius: 0;
   }
+
+
+
+
+//-------------------------Navigation bar styles------------------------------------------------------------
+
+  /* Add a black background color to the top navigation */
+  .topnav {
+    background-color: #ffffff;
+    overflow: hidden;
+    padding-left: 12px;
+    display: flex;
+  
+ 
+  }
+
+
+/* Style the links inside the navigation bar */
+.navlinks a {
+ 
+  float: left;
+  display: block;
+  color: #3f3b3b;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.navlinks a:hover {
+  border-bottom: 3px solid rgb(248, 56, 8);
+  
+  color: rgb(0, 0, 0);
+}
+
+
+/* Add an active class to highlight the current page */
+.topnav a.active {
+  
+  color: rgb(22, 25, 207);
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+.logoIcon{
+  align-items: center;
+}
+.logoIcon a{
+  margin-right: 152px;
+  margin-left: 40px;
+  color: black;
+ 
+}
+.logoIcon a:hover{
+     border-bottom: none ;
+}
+
+/* When the screen is less than 750 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 750px) {
+  .navlinks a {display: none;}
+  .topnav .username{display:none;}
+  .topnav a.icon {
+   
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 750px) {
+  .navlinks.responsive {
+    
+    position: relative;
+    
+   
+  }
+  .topnav.responsive a.icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-bottom: 15px;
+    font-weight: lighter;
+    color: navy;
+  }
+
+  
+  .user-wrapper
+  {
+    top:0;
+    position: absolute;
+    right: 0;
+  }
+
+  .logoIcon{
+    display: none;
+  }
+
+  
+  
+  
+  .navlinks.topnav.responsive
+  {
+    margin-top: 15px;
+    top: 80px !important;
+    position: relative;
+    display: block;
+    
+  }
+.navlinks.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+    text-transform: uppercase;
+    border-bottom: 0px solid white;
+    font-size: 15px;
+
+    &:first-child{
+      margin-top: 34px;
+   
+    }
+  }
+
+
+  
+    
+  
+
+  .navlinks.responsive a:hover {  
+    border-bottom: none;
+    background-color: aquamarine;
+  }
+
+  .upper_image
+  {
+    display: none !important;
+  }
+
+}
+
+
+//---------------------tablet sizze------------------------
+@media screen and (max-width: 1100px) {
+  
+
+  .topnav a {
+  
+    font-size: 12px;
+    padding: 10px 10px;
+  }
+
+  .topnav a:not(:first-child) {
+  
+    margin-left: 4px;
+  }
+
+  .topnav.responsive a:hover {  
+    border-bottom: none;
+    background-color: aquamarine;
+  }
+
+  .logo-icon a{
+    margin-right: 82px;
+  }
+}
+
+
+//-------------------------------tablet portrait-----------------------------
+
+//-----------------------------Navigation bar ----------------------------------------------------------------------
+
   
   .belownav {
     //background-image: url("../images/rand5.jpg");
-    background-color: rgb(234, 249, 250);
+    background-color: $basic;
     background-blend-mode: multiply;
     background-size: 100% 100%;
     height: auto;

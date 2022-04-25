@@ -101,7 +101,10 @@
 {
     display: flex;
     align-items: center;
-    margin-left: 13px;
+    margin-right: 4rem;
+    margin-left: auto;
+    
+
 
     img{
         border-radius: 50%;
@@ -113,9 +116,19 @@
     
     .username{
         font-size: 20px;
-        margin-left: 50px;
+        margin-left: 10px;
+    }
+
+    &:hover{
+         cursor: pointer;
+    }
+
+    .dropdown-menu
+    {
+       z-index:100;
     }
 }
+
 
 
 
@@ -161,5 +174,25 @@
 }
 
 
-
+.userdash_belownav {
+    background-color: #eaf9fa;
+    height: 350px;
+  }
+  
+  .content_cards .card:hover {
+    -webkit-box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+            box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    border-radius: 0;
+    margin-left: 6px;
+    margin-right: 6px;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  
+  .content_cards .card_icon {
+    color: #23235c;
+    font-size: 60px;
+  }
 

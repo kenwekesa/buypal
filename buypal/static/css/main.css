@@ -1,11 +1,141 @@
 body::before {
   display: block;
   content: "";
-  height: 60px;
+  height: 10px;
 }
 
 .enrol {
   border-radius: 0;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #ffffff;
+  overflow: hidden;
+  padding-left: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* Style the links inside the navigation bar */
+.navlinks a {
+  float: left;
+  display: block;
+  color: #3f3b3b;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.navlinks a:hover {
+  border-bottom: 3px solid #f83808;
+  color: black;
+}
+
+/* Add an active class to highlight the current page */
+.topnav a.active {
+  color: #1619cf;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+.logoIcon {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logoIcon a {
+  margin-right: 152px;
+  margin-left: 40px;
+  color: black;
+}
+
+.logoIcon a:hover {
+  border-bottom: none;
+}
+
+/* When the screen is less than 750 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 750px) {
+  .navlinks a {
+    display: none;
+  }
+  .topnav .username {
+    display: none;
+  }
+  .topnav a.icon {
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 750px) {
+  .navlinks.responsive {
+    position: relative;
+  }
+  .topnav.responsive a.icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-bottom: 15px;
+    font-weight: lighter;
+    color: navy;
+  }
+  .user-wrapper {
+    top: 0;
+    position: absolute;
+    right: 0;
+  }
+  .logoIcon {
+    display: none;
+  }
+  .navlinks.topnav.responsive {
+    margin-top: 15px;
+    top: 80px !important;
+    position: relative;
+    display: block;
+  }
+  .navlinks.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+    text-transform: uppercase;
+    border-bottom: 0px solid white;
+    font-size: 15px;
+  }
+  .navlinks.responsive a:first-child {
+    margin-top: 34px;
+  }
+  .navlinks.responsive a:hover {
+    border-bottom: none;
+    background-color: aquamarine;
+  }
+  .upper_image {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .topnav a {
+    font-size: 12px;
+    padding: 10px 10px;
+  }
+  .topnav a:not(:first-child) {
+    margin-left: 4px;
+  }
+  .topnav.responsive a:hover {
+    border-bottom: none;
+    background-color: aquamarine;
+  }
+  .logo-icon a {
+    margin-right: 82px;
+  }
 }
 
 .belownav {
@@ -19,7 +149,7 @@ body::before {
           clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
 }
 
-@media (max-width: 620px) {
+@media (max-width: 1200px) {
   .belownav {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -78,7 +208,7 @@ body::before {
   color: #464141;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 1200px) {
   #navmenu li {
     font-size: 50;
   }
@@ -101,7 +231,7 @@ body::before {
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 1200px) {
   .btn-login, .btn-signup {
     width: 100%;
   }
@@ -126,7 +256,7 @@ body::before {
 }
 
 .picsection1 {
-  background-image: url("/static/images/media/crypto.jpg");
+  background-image: url("../images/crypto.jpg");
   background-size: 100% 100%;
   height: 20em;
   background-repeat: no-repeat;
@@ -159,7 +289,7 @@ body::before {
   width: 45%;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 1200px) {
   .image_card2 {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -272,13 +402,8 @@ body::before {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: 53px;
-  /* Style The Dropdown Button */
-  /* The container <div> - needed to position the dropdown content */
-  /* Dropdown Content (Hidden by Default) */
-  /* Links inside the dropdown */
-  /* Change color of dropdown links on hover */
-  /* Show the dropdown menu on hover */
+  margin-right: 4rem;
+  margin-left: auto;
 }
 
 .user-wrapper img {
@@ -288,51 +413,19 @@ body::before {
 
 .user-wrapper span {
   font-size: 35px;
-  color: #0b6bb9;
 }
 
 .user-wrapper .username {
   font-size: 20px;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
-.user-wrapper .dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+.user-wrapper:hover {
   cursor: pointer;
 }
 
-.user-wrapper .dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.user-wrapper .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.user-wrapper .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.user-wrapper .dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
-
-.user-wrapper:hover .dropdown-content {
-  display: block;
+.user-wrapper .dropdown-menu {
+  z-index: 100;
 }
 
 .cards-row, .cards-row2 {
@@ -377,6 +470,28 @@ body::before {
   height: 420px;
 }
 
+.userdash_belownav {
+  background-color: #eaf9fa;
+  height: 350px;
+}
+
+.content_cards .card:hover {
+  -webkit-box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border-radius: 0;
+  margin-left: 6px;
+  margin-right: 6px;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.content_cards .card_icon {
+  color: #23235c;
+  font-size: 60px;
+}
+
 .login_page * {
   margin: 0;
   padding: 0;
@@ -385,7 +500,7 @@ body::before {
 }
 
 .login_page body {
-  background: url("/static/images/media/moneyback4.jpg");
+  background: url("../images/moneyback4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'open sans', sans-serif;
@@ -519,7 +634,7 @@ body::before {
 }
 
 .signup_page body {
-  background: url("/static/images/media/moneyback4.jpg");
+  background: url("../images/moneyback4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'open sans', sans-serif;
@@ -656,7 +771,7 @@ body::before {
 }
 
 .news_page .belownav_div {
-  background-image: url("/static/images/media/rand2.jpg");
+  background-image: url("../images/rand2.jpg");
   background-size: 100% 100%;
   height: 20rem;
   background-repeat: no-repeat;
@@ -665,6 +780,7 @@ body::before {
 .news_page .belownav_div h1 {
   z-index: 100;
   position: relative;
+  color: white;
 }
 
 .news_page .belownav_div .container {
@@ -684,7 +800,7 @@ body::before {
           justify-content: center;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 1200px) {
   .news_page .belownav_div {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -754,7 +870,7 @@ body::before {
   font-size: 28px;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 1200px) {
   .news_page #navmenu li {
     font-size: 50;
   }
@@ -777,7 +893,7 @@ body::before {
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 1200px) {
   .news_page .btn-login, .news_page .btn-signup {
     width: 100%;
   }
@@ -809,7 +925,7 @@ body::before {
   width: 45%;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 1200px) {
   .news_page .image_card2 {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -819,25 +935,5 @@ body::before {
   .news_page .image_card2 img {
     width: 100%;
   }
-}
-
-.userdash_belownav {
-  background-color: #eaf9fa;
-  height: 350px;
-}
-
-.content_cards .card:hover {
-  -webkit-box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
-          box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  border-radius: 0;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
-.content_cards .card_icon {
-  color: #23235c;
-  font-size: 60px;
 }
 /*# sourceMappingURL=main.css.map */

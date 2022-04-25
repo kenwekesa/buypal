@@ -49,7 +49,6 @@ def login_view(request):
 		    user = authenticate(username=username, password=password)
 		    if user is not None:
 			    login(request, user)
-			    messages.info(request, f"You are now logged in as {username}.")
 			    return redirect("user-home")
 		    else:
 			    messages.error(request,"Invalid username or password.")
@@ -89,5 +88,28 @@ def signup_view(request):
 def userdashboard_view(request):
     return render(request, 'buypal/userdashboard.html')
 
+@login_required
+def edit_profile_view(request):
+    #context = {'posts': Post.objects.all()}
+    if request.method == 'POST':
+        form = SignUpForm(request.POST, instance=request.user)
+        if form.is_valid():
+            user = form.save()
+            user.refresh_from_db()
+            full_name = form.cleaned_data.get('full_name')
+            email = form.cleaned_data.get('email')
 
+            Profile.objects.create(user=user, full_name = full_name, email=email)
 
+            user.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            
+
+            messages.info(request, f"You are signed up successfully, login to proceed.")    
+            return redirect('login')
+    else:
+        form = SignUpForm(instance=request.user)
+    return render(request, 'forms/signup.html', {'form': form})
+    #return render(request, 'forms/signup.html')#,context)
