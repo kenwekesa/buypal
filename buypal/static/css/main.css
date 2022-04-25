@@ -500,7 +500,7 @@ body::before {
 }
 
 .login_page body {
-  background: url("../images/moneyback4.jpg");
+  background: url("../images/media/moneyback4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'open sans', sans-serif;
@@ -634,7 +634,7 @@ body::before {
 }
 
 .signup_page body {
-  background: url("../images/moneyback4.jpg");
+  background: url("../images/media/moneyback4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'open sans', sans-serif;
@@ -771,7 +771,7 @@ body::before {
 }
 
 .news_page .belownav_div {
-  background-image: url("../images/rand2.jpg");
+  background-image: url("../images/media/rand2.jpg");
   background-size: 100% 100%;
   height: 20rem;
   background-repeat: no-repeat;
