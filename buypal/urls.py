@@ -25,6 +25,7 @@ urlpatterns = [
     path("login", mainviews.login_view, name="login"),
     path("signup", mainviews.signup_view, name="signup"),
     path("user-home", mainviews.userdashboard_view, name="user-home"),
+    path('scrape/', mainviews.scrape, name="scrape"),
      path("news", mainviews.news_view, name="news"),
      path('logout/', auth_views.LogoutView.as_view(template_name = 'buypal/index.html'), name='logout'),
      path('user-profile-update', mainviews.edit_profile_view,name='update-profile'),

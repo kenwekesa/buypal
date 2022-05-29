@@ -17,7 +17,7 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-
+       
         <div class="collapse navbar-collapse" id="navmenu">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
@@ -62,94 +62,55 @@
 
 
 
-    <section class="p-5 pl-0 pr-0 card_section">
-      <div class="container ">
-        <div class="row col-md-12 text-center news_cards d-flex justify-content-center">
-          
-          <div class="col-md-7">
-            <div class="card bg-light text-dark border-0 shadow ">
-              <div class="card-head">
-                 <img class="w-100 card-image-top" src="{% static 'images/media/news3.jpg' %}" >
-              </div>
-              <div class="card-body text-center">
-                <div class="h1 mb-3">
-                  <i class="bi bi-people"></i>
-                </div>
-                <h3 class="card-title mb-3">Dummy Header</h3>
-                <p class="card-text">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Iure, quas quidem possimus dolorum esse eligendi?
-                </p>
-               
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-              <div class="row justify-content-center mt-5 mb-4">
-                  <div class="card image_card2 col-md-8 border-0 shadow">
-               
-                <div class="card-body">
-                  <h5 class="card-title">News Headline</h5>
-                  <p class="card-text">Some quick example text to build on the car build on the card title and makthe bulk of the card's content.</p>
-    
-              </div>
-            </div>
-          </div>
-           <div class="row justify-content-center mt-5 mb-4">
-                  <div class="card image_card2 col-md-8 border-0 shadow">
-               
-                <div class="card-body">
-                  <h5 class="card-title">News Headline</h5>
-                  <p class="card-text">Some quick example text to build on the card tiild on the card title and makthe bulk of the card's content.</p>
-    
-              </div>
-            </div>
-          </div>
-           <div class="row justify-content-center mt-5 mb-4">
-                  <div class="card image_card2 col-md-8 border-0 shadow">
-               
-                <div class="card-body">
-                  <h5 class="card-title">News Headline</h5>
-                  <p class="card-text">Some quick example text e and makthe bulk of the card's content.</p>
-    
-              </div>
-            </div>
-          </div>
-          </div>
-        </div>
-      </div>
-    </section>
+   
            
 
 
-    
+    {% for article in articles %}
     <div class="row justify-content-center mt-5 mb-4">
+
+
     <div class="card image_card2 col-md-8 border-0 shadow">
-  <img src="{% static 'images/media/news4.jpeg' %}" class="card-img-top" alt="...">
+  <img src="{{article.urlToImage}}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up ome quick example text to build on the card title and makome quick example text to build on the card title and makome quick example text to build on the card title and makome quick example text to build on the card title and makome quick example text to build on the card title and makthe bulk of the card's content.</p>
+    <h4 class="card-title">{{article.title}}</h4>
+    <p class="card-text">{{article.description}}</p>
+    <br/>
+    
     
   </div>
 </div>
 </div>
 
+   {% endfor %}
 
-  <div class="row justify-content-center mt-5 mb-4">
-    <div class="card image_card2 col-md-8 border-0 shadow">
-  <img src="{% static 'images/media/news4.jpeg' %}" class="card-img-top" alt="...">
+
+  
+    
+
+
+
+    
+
+<div class="jumbotron">
+      
+            
+        </form>
+    </center>
+    </div>
+  <div class="card-columns" style="padding: 10px; margin: 20px;">
+    {% for object in object_list %}
+    <div class="card" style="width: 18rem;border:5px black solid;">
+  <img class="card-img-top" src = "{{ object.image }}">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up ome quick example text to build on the card title and makome quick example text to build on the card title and makome quick example text to build on the card title and makome quick example text to build on the card title and makome quick example text to build on the card title and makthe bulk of the card's content.</p>
-    
+    <h5 class="card-title"><div class="card-body">
+      <a href="{{object.url}}"><h5 class="card-title">{{object.title}}</h5></a>
+    </div></h5>
+    </div>
   </div>
+  {% endfor %}
 </div>
 </div>
-    
-
-
-
-    
 
 
 

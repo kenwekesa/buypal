@@ -21,12 +21,37 @@ from django.contrib.auth.forms import AuthenticationForm #add this
 
 from django.shortcuts import render, redirect
 
+#for news 
+from django.views.generic import View
+from django.core.exceptions import ObjectDoesNotExist
+
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+from accounts.models import News
+
+from .serializers import NewsSerializer
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+from bs4 import BeautifulSoup as BSoup
+from accounts.models import Headline
+import requests
+
+
 # Create your views here.
 
 
 
 
 
+
+class NewsApiView(APIView):
+
+    def get(self, request):
+        news_qs = News.objects.all()
+        serializer = NewsSerializer(news_qs, many=True)
+        return Response(serializer.data)
 
 
 #@login_required
@@ -35,8 +60,18 @@ def home(request):
     return render(request, 'buypal/index.html')#,context)
 
 def news_view(request):
-    #context = {'posts': Post.objects.all()}
-    return render(request, 'buypal/news.html')#,context)
+    #headlines = Headline.objects.all()[::-1]
+    
+    url = ('https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1ea40f94110644f493df2b9991d8ba39')
+
+    news_json = requests.get(url) 
+    
+
+    context = {
+        'articles': news_json.json()['articles'] ,
+    }
+
+    return render(request, 'buypal/news.html',context)
 
 def login_view(request):
     #context = {'posts': Post.objects.all()}
@@ -113,3 +148,37 @@ def edit_profile_view(request):
         form = SignUpForm(instance=request.user)
     return render(request, 'forms/signup.html', {'form': form})
     #return render(request, 'forms/signup.html')#,context)
+
+
+
+
+def scrape(request):
+  session = requests.Session()
+  session.headers = {"User-Agent": "Googlebot/2.1 (+http://www.googlebot.com/bot.html)"} 
+  url = "https://nation.africa/kenya/news"
+  headers = requests.utils.default_headers()
+  headers.update({
+    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0',
+  })
+  content = requests.get(url, verify=False).content
+  soup = BSoup(content, "html.parser")
+
+  News = soup.find_all('ol', {"class":"article-collection"})
+  for artcile in News:
+    main = artcile.find_all('li')
+    for ar in main:
+        af= ar.find('a')
+        title = af.find('h3').contents
+        print("\n\n-----------------------------------------------------------------------------")
+        print(af['href'])
+        print(title)
+        print("\n\n-----------------------------------------------------------------------------")
+    
+        
+        new_headline = Headline()
+        new_headline.title = title
+        new_headline.url = af['href']
+        new_headline.image = "None"
+        new_headline.save()
+  print(News)
+  return redirect("../")
