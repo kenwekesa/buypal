@@ -39,3 +39,4 @@ zopfli==0.1.9
 django-widget-tweaks==1.4.9
 celery==5.2.7
 djangorestframework==3.13.1
+requests==2.12.4
