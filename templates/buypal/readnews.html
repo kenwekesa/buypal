@@ -61,8 +61,8 @@
 
 
   <div class="row cardsrow">
-     {% for article in articles %}
-            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+    
+            <div class="col-sm-12 col-md-4 col-lg-12 mt-12">
                 <div class="card h-100 border-0">
                     <div class="imagetop">
                     <img class="card-img-top" src="{{article.urlToImage}}">
@@ -70,11 +70,11 @@
                     <div class="card-block">
                         <h5 class="text-bold">{{article.title}}</h5>
                         <p>{{article.description}}</p>
-                         <a href="{{article.url}}" class="stretched-link"></a>
+                        <p>{{article.content}}
                     </div>
                 </div>
             </div>
-      {% endfor %}
+   
             
         </div>
 

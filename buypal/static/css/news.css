@@ -1,0 +1,42 @@
+.boldRow {
+    display: block;
+    margin: 0 -15px;
+}
+
+.rowItemContent {
+    position: relative;
+    width: 100%;
+    background-size: cover;
+}
+
+.card
+{
+    border-radius: 0px !important;
+    margin-top: 40px;
+}
+.card:hover{
+    box-shadow: 0 10px 10px rgba(80, 74, 74, 0.7);
+    transition: 500ms ease all;
+}
+.card:hover img {
+    transform: scale(1.1);
+    opacity: 0.7;
+    
+    transition: 500ms ease all;
+  }
+
+  .imagetop {
+    overflow: hidden;
+    position: relative;
+    transition: 300ms ease all;
+  }
+  .cardsrow
+  {
+      padding-left: 40px;
+      padding-right: 40px;
+      margin-top: 60px;
+  }
+   .card-block
+   {
+       padding: 14px;
+   }

@@ -73,6 +73,22 @@ def news_view(request):
 
     return render(request, 'buypal/news.html',context)
 
+def view_news_view(request):
+    #headlines = Headline.objects.all()[::-1]
+    
+    url = ('https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1ea40f94110644f493df2b9991d8ba39')
+
+    news_json = requests.get(url) 
+   
+    
+
+    context = {
+        'article': news_json.json()['articles'][0] ,
+    }
+
+    return render(request, 'buypal/readnews.html',context)
+
+
 def login_view(request):
     #context = {'posts': Post.objects.all()}
   
