@@ -39,6 +39,11 @@ from accounts.models import Headline
 import requests
 
 
+
+#constants
+ALPHA_VINTAGE_API_KEY =  'RRKMAMVFQD2U5T6Y'
+
+
 # Create your views here.
 
 
@@ -57,6 +62,9 @@ class NewsApiView(APIView):
 #@login_required
 def home(request):
     #context = {'posts': Post.objects.all()}
+    
+        
+        
     return render(request, 'buypal/index.html')#,context)
 
 def news_view(request):
@@ -87,6 +95,32 @@ def view_news_view(request):
     }
 
     return render(request, 'buypal/readnews.html',context)
+
+def stockexchange_view(request):
+    #context = {'posts': Post.objects.all()}
+    url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=SBIN.BSE&outputsize=full&apikey="+ALPHA_VINTAGE_API_KEY
+    #url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=SBIN.BSE&interval=5min&apikey='+ALPHA_VINTAGE_API_KEY
+    r = requests.get(url)
+    data = r.json()
+
+    data_list = []
+    
+   
+    for i in data['Time Series (Daily)']:
+        if i >= '2022-01-01':
+            myDict={}
+            myDict["timeline"] = i
+            myDict["data"] = data['Time Series (Daily)'][i]
+            data_list.append(myDict)
+        else:
+            break
+    
+    context = { 
+        "datas": data_list
+
+     } 
+        
+    return render(request, 'buypal/stockexchange.html',context)
 
 
 def login_view(request):

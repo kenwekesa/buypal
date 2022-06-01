@@ -12,10 +12,10 @@
             </div>
            <div class = "navlinks" id="myTopnav">
              <a href="#home">Home</a>
-            <a href="#" >Newbie Investor</a>
+            <a href="{% url 'stock-exchange' %}" >Exchanges</a>
             <a href="#">Market</a>
             <a href="{% url 'news' %}">News</a>
-            <a href="#">Membership</a>
+            <a href="#">Newbie Members</a>
               <a href="#">About us</a>
           <a href="#" >Contact us</a>
             
@@ -139,60 +139,18 @@
     </section>
 
 
-    <section class="p-5 pl-2 pr-2 card_section">
-      <div class="container ">
-        <div class="row text-center g-4 content_cards1 d-flex justify-content-center">
-          
-          <div class="col-md-5">
-            <div class="card bg-light text-dark border-0 shadow ">
-              <div class="card-head">
-                 <img class="w-100 card-image-top" src="{% static 'images/media/personbuy.jpeg' %}" >
-              </div>
-              <div class="card-body text-center">
-                <div class="h1 mb-3">
-                  <i class="bi bi-people"></i>
-                </div>
-                <h3 class="card-title mb-3">Dummy Header</h3>
-                <p class="card-text">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Iure, quas quidem possimus dolorum esse eligendi?
-                </p>
-                <a href="#" class="btn btn-primary">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="card bg-light text-dark border-0 shadow">
-              <div class="card-head">
-                 <img class="w-100 card-image-top" src="{% static 'images/media/personbuy.jpeg' %}" >
-              </div>
-              <div class="card-body text-center">
-                <div class="h1 mb-3">
-                  <i class="bi bi-people"></i>
-                </div>
-                <h3 class="card-title mb-3">Dummy Header</h3>
-                <p class="card-text">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Iure, quas quidem possimus dolorum esse eligendi?
-                </p>
-                <a href="#" class="btn btn-primary">Read More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
             <div id="overlay"></div>
 
 
     
 <div class="row justify-content-center mt-5 mb-4">
-    <div class="card image_card2 col-md-8 border-0 shadow">
-  <img src="{% static 'images/media/backmoney.jpg'%}" class="card-img-top" alt="...">
+    <div class="card image_card2 col-md-8 border-0 shadow stock_card">
+  <img src="{% static 'images/media/personbuy.jpeg' %}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up ome quick example text to build on the card title and makome quick example text to build on the card title and makome quick example text to build on the card title and makome quick example text to build on the card title and makome quick example text to build on the card title and makthe bulk of the card's content.</p>
-    
+    <h4 class="card-title">SBI Stock Exchange</h4>
+    <p class="card-text">State Bank of India is an Indian multinational public sector bank and financial services statutory body headquartered in Mumbai, Maharashtra. SBI is the 43rd largest bank in the world and ranked 221st in the Fortune Global 500 list of the world's biggest corporations of 2020, being the only Indian bank on the list</p>
+     <a href="{% url 'stock-exchange' %}" class="stretched-link"></a>
   </div>
 </div>
 </div>

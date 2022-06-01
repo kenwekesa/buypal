@@ -30,6 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-=fc15u=8zp$ivix69#zgjg7u+n^!y1*eg!=x70p(%%^1%=#ci3'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -153,12 +154,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 """
 
 
 #-----------------------------------------For Heroku-----------------------------------------------------------
 
-"""
+#"""
 
 Django settings for buypal project.
 
@@ -170,7 +172,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+"""
 from pathlib import Path
 import os
 import django_on_heroku
@@ -314,3 +316,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#"""

@@ -374,5 +374,20 @@ body::before {
   }
 }
 
+.stock_card
+{
+  h4{
+    font-weight: bold;
+  }
+  p{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+}
+
+.stock_card:hover{
+  box-shadow: 0 10px 10px rgba(80, 72, 72, 0.7) !important;
+  transition: 500ms ease all;
+
+}
   
   

@@ -310,6 +310,21 @@ body::before {
   }
 }
 
+.stock_card h4 {
+  font-weight: bold;
+}
+
+.stock_card p {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.stock_card:hover {
+  -webkit-box-shadow: 0 10px 10px rgba(80, 72, 72, 0.7) !important;
+          box-shadow: 0 10px 10px rgba(80, 72, 72, 0.7) !important;
+  -webkit-transition: 500ms ease all;
+  transition: 500ms ease all;
+}
+
 .sidebar {
   background: #200450;
   width: 15%;
@@ -945,4 +960,3 @@ body::before {
     width: 100%;
   }
 }
-/*# sourceMappingURL=main.css.map */
