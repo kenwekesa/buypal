@@ -38,6 +38,9 @@ from bs4 import BeautifulSoup as BSoup
 from accounts.models import Headline
 import requests
 
+from random import randrange
+
+
 
 
 #constants
@@ -63,7 +66,9 @@ class NewsApiView(APIView):
 def home(request):
     #context = {'posts': Post.objects.all()}
     
-        
+    
+    
+    
         
     return render(request, 'buypal/index.html')#,context)
 
@@ -80,6 +85,22 @@ def news_view(request):
     }
 
     return render(request, 'buypal/news.html',context)
+
+
+def get_news_view(request):
+    #headlines = Headline.objects.all()[::-1]
+    
+    url = ('https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1ea40f94110644f493df2b9991d8ba39')
+
+    news_json = requests.get(url) 
+    
+    
+    context = {
+        'article': news_json.json()['articles'][randrange(len(news_json.json()['articles']))] ,
+    }
+
+    return render(request, 'buypal/news_card.html',context)
+
 
 def view_news_view(request):
     #headlines = Headline.objects.all()[::-1]

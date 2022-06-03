@@ -29,6 +29,7 @@ urlpatterns = [
      path("news", mainviews.news_view, name="news"),
      path("stockexchange", mainviews.stockexchange_view, name="stock-exchange"),
      path("viewnews", mainviews.view_news_view, name="read-news"),
+     path("updatenews", mainviews.get_news_view, name="update-card-news"),
      path('logout/', auth_views.LogoutView.as_view(template_name = 'buypal/index.html'), name='logout'),
      path('user-profile-update', mainviews.edit_profile_view,name='update-profile'),
 
