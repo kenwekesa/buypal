@@ -46,6 +46,8 @@ from random import randrange
 #constants
 ALPHA_VINTAGE_API_KEY =  'RRKMAMVFQD2U5T6Y'
 
+CLOUD_FPM_API_KEY ='27fbd95a470a84bdbc9b4102a4818bd6'
+
 
 # Create your views here.
 
@@ -129,9 +131,11 @@ def stockexchange_view(request):
     #context = {'posts': Post.objects.all()}
     url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=SBIN.BSE&outputsize=full&apikey="+ALPHA_VINTAGE_API_KEY
     #url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=SBIN.BSE&interval=5min&apikey='+ALPHA_VINTAGE_API_KEY
+    #url = 'https://fmpcloud.io/api/v3/historical-price-full/AAPL?serietype=line&apikey=27fbd95a470a84bdbc9b4102a4818bd6'
+
     r = requests.get(url)
     data = r.json()
-
+    
     data_list = []
     
    
