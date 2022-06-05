@@ -66,11 +66,19 @@ class NewsApiView(APIView):
 def home(request):
     #context = {'posts': Post.objects.all()}
     
+    url = ('https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1ea40f94110644f493df2b9991d8ba39')
+
+    news_json = requests.get(url) 
+    
+
+    context = {
+        'articles': news_json.json()['articles'] ,
+    }
     
     
     
         
-    return render(request, 'buypal/index.html')#,context)
+    return render(request, 'buypal/index.html',context)
 
 def news_view(request):
     #headlines = Headline.objects.all()[::-1]
