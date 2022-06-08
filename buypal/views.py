@@ -80,17 +80,24 @@ def home(request):
 
     data_table = soup.find_all('div', {"class":"coingecko-table"})
 
-    rows = data_table[1].find('table').find('tbody').find_all('tr')
+    tables_dic = {}
 
-    for r in rows:
-        td=r.find_all('td')
-        coin = td[0].find('div').find_all('div')[1].find_all('span')[0].contents[0]
-        volume  = td[1].find('a').find('span').contents[0]
-        price  = td[2].find('a').find('span').contents[0]
-        percentage  = td[3].find('span').contents[0]
+    for table in data_table:
+        rows = table.find('table').find('tbody').find_all('tr')
+        table_list = []
+        for r in rows:
+            rows_dic ={}
+            td=r.find_all('td')
+            rows_dic["coin"] = td[0].find('div').find_all('div')[1].find_all('span')[0].contents[0]
+            rows_dic["volume"]  = td[1].find('a').find('span').contents[0]
+            rows_dic["price"] = td[2].find('a').find('span').contents[0]
+            rows_dic["percentage"]  = td[3].find('span').contents[0]
 
-        print("-----------------------\n")
-        print(coin + "  " + volume + "   " + price + "   " + percentage)
+            table_list.append(rows_dic)
+
+        tables_dic['table'+str(data_table.index(table))] = table_list
+    print(tables_dic)
+
           
         
     url = ('https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1ea40f94110644f493df2b9991d8ba39')
@@ -100,6 +107,7 @@ def home(request):
 
     context = {
         'articles': news_json.json()['articles'] ,
+        'gainers_loosers': tables_dic,
     }
     
     
