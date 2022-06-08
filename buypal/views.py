@@ -67,7 +67,32 @@ class NewsApiView(APIView):
 #@login_required
 def home(request):
     #context = {'posts': Post.objects.all()}
-    
+    session = requests.Session()
+    session.headers = {"User-Agent": "Googlebot/2.1 (+http://www.googlebot.com/bot.html)"} 
+    url = "https://www.coingecko.com/en/crypto-gainers-losers"
+    #url="https://coinmarketcap.com/gainers-losers/"
+    headers = requests.utils.default_headers()
+    headers.update({
+    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0',
+    })
+    content = requests.get(url, verify=False).content
+    soup = BSoup(content, "html.parser")
+
+    data_table = soup.find_all('div', {"class":"coingecko-table"})
+
+    rows = data_table[1].find('table').find('tbody').find_all('tr')
+
+    for r in rows:
+        td=r.find_all('td')
+        coin = td[0].find('div').find_all('div')[1].find_all('span')[0].contents[0]
+        volume  = td[1].find('a').find('span').contents[0]
+        price  = td[2].find('a').find('span').contents[0]
+        percentage  = td[3].find('span').contents[0]
+
+        print("-----------------------\n")
+        print(coin + "  " + volume + "   " + price + "   " + percentage)
+          
+        
     url = ('https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1ea40f94110644f493df2b9991d8ba39')
 
     news_json = requests.get(url) 
@@ -239,6 +264,38 @@ def scrape(request):
   session = requests.Session()
   session.headers = {"User-Agent": "Googlebot/2.1 (+http://www.googlebot.com/bot.html)"} 
   url = "https://nation.africa/kenya/news"
+  headers = requests.utils.default_headers()
+  headers.update({
+    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0',
+  })
+  content = requests.get(url, verify=False).content
+  soup = BSoup(content, "html.parser")
+
+  News = soup.find_all('ol', {"class":"article-collection"})
+  for artcile in News:
+    main = artcile.find_all('li')
+    for ar in main:
+        af= ar.find('a')
+        title = af.find('h3').contents
+        print("\n\n-----------------------------------------------------------------------------")
+        print(af['href'])
+        print(title)
+        print("\n\n-----------------------------------------------------------------------------")
+    
+        
+        new_headline = Headline()
+        new_headline.title = title
+        new_headline.url = af['href']
+        new_headline.image = "None"
+        new_headline.save()
+  print(News)
+  return redirect("../")
+
+
+def scrape_gainers_loosers(request):
+  session = requests.Session()
+  session.headers = {"User-Agent": "Googlebot/2.1 (+http://www.googlebot.com/bot.html)"} 
+  url = "https://www.coingecko.com/en/crypto-gainers-losers"
   headers = requests.utils.default_headers()
   headers.update({
     'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0',
