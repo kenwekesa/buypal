@@ -115,6 +115,53 @@ def home(request):
         
     return render(request, 'buypal/index.html',context)
 
+
+def page_details_view(request):
+    session = requests.Session()
+    session.headers = {"User-Agent": "Googlebot/2.1 (+http://www.googlebot.com/bot.html)"} 
+    url = "https://www.coingecko.com/en/crypto-gainers-losers"
+    #url="https://coinmarketcap.com/gainers-losers/"
+    headers = requests.utils.default_headers()
+    headers.update({
+    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0',
+    })
+    content = requests.get(url, verify=False).content
+    soup = BSoup(content, "html.parser")
+
+    data_table = soup.find_all('div', {"class":"coingecko-table"})
+
+    tables_dic = {}
+
+    for table in data_table:
+        rows = table.find('table').find('tbody').find_all('tr')
+        table_list = []
+        for r in rows:
+            rows_dic ={}
+            td=r.find_all('td')
+            rows_dic["coin"] = td[0].find('div').find_all('div')[1].find_all('span')[0].contents[0]
+            rows_dic["volume"]  = td[1].find('a').find('span').contents[0]
+            rows_dic["price"] = td[2].find('a').find('span').contents[0]
+            rows_dic["percentage"]  = td[3].find('span').contents[0]
+
+            table_list.append(rows_dic)
+
+        tables_dic['table'+str(data_table.index(table))] = table_list
+    print(tables_dic)
+
+          
+        
+   
+
+    news_json = requests.get(url) 
+    
+
+    context = {
+        
+        'gainers_loosers': tables_dic,
+    }
+    return render(request, 'buypal/page_details.html',context)
+
+    
 def news_view(request):
     #headlines = Headline.objects.all()[::-1]
     

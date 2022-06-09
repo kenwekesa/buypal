@@ -22,6 +22,7 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", mainviews.home, name="homepage"),
+    path("buypal-crypto", mainviews.page_details_view, name="page-details"),
     path("login", mainviews.login_view, name="login"),
     path("signup", mainviews.signup_view, name="signup"),
     path("user-home", mainviews.userdashboard_view, name="user-home"),
