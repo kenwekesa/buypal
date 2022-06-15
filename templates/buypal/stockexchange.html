@@ -43,7 +43,7 @@
 
 
 <div class="container table_container mt-4">
-    <div class="row" style="width: 100%">
+    <!--<div class="row" style="width: 100%">
        <h3 style="margin: auto;">STATE BANK OF INDIA BSE</h3>
     </div>
     <br/>
@@ -76,6 +76,31 @@
 
            
    </div>
+   -->
+<h2>NSE Indices</h2>
+    <div class="row flex-row flex-nowrap" style ="overflow-x: scroll; margin-right:5px">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        {% for data in datas %}
+            <div class="card card-block">
+
+            <div class="card-body">
+                    <h4 class="card-title">{{data.name}}</h4>
+                    {% if data.change <0 %}
+                    <p class="card-text" id = "card_textt"> {{data.lastPrice}}  <i style="font-size: 23px; color: red; position: absolute; margin-right:9px; right:0;" class="fa fa-sort-asc" aria-hidden="true"></i></p>
+                      <p id="change" style="color:red">212(73.453%%)</p>
+                      {% else %}
+                      <p class="card-text" id = "card_textt"> {{data.lastPrice}}  <i style="font-size: 23px; color: green; position: absolute; margin-right:9px; right:0;" class="fa fa-sort-asc" aria-hidden="true"></i></p>
+                  <p id="change" style="color:green">{{data.change}}({{data.pChange}}%)</p>
+                      {% endif %}
+                </div>
+            
+            </div>
+          {% endfor %}
+        </div>
+        
+    </div>
+
+
    </div>
    </div>
 

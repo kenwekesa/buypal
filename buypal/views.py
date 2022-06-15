@@ -21,6 +21,7 @@ from django.contrib.auth.forms import AuthenticationForm #add this
 
 from django.shortcuts import render, redirect
 
+
 #for news 
 from django.views.generic import View
 from django.core.exceptions import ObjectDoesNotExist
@@ -38,7 +39,11 @@ from bs4 import BeautifulSoup as BSoup
 from accounts.models import Headline
 import requests
 
+import json
+
 from random import randrange
+
+from nsetools import Nse
 
 
 
@@ -96,7 +101,7 @@ def home(request):
             table_list.append(rows_dic)
 
         tables_dic['table'+str(data_table.index(table))] = table_list
-    print(tables_dic)
+    
 
           
         
@@ -146,7 +151,7 @@ def page_details_view(request):
             table_list.append(rows_dic)
 
         tables_dic['table'+str(data_table.index(table))] = table_list
-    print(tables_dic)
+    
 
           
         
@@ -212,24 +217,45 @@ def stockexchange_view(request):
     url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=SBIN.BSE&outputsize=full&apikey="+ALPHA_VINTAGE_API_KEY
     #url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=SBIN.BSE&interval=5min&apikey='+ALPHA_VINTAGE_API_KEY
     #url = 'https://fmpcloud.io/api/v3/historical-price-full/AAPL?serietype=line&apikey=27fbd95a470a84bdbc9b4102a4818bd6'
+    
+    nse = Nse()
+    
+    #index_list = nse.get_index_list()
+
+    index_list = [
+    'NIFTY 50',
+    'NIFTY NEXT 50',
+    'NIFTY100 LIQ 15',
+    'NIFTY BANK',
+    'INDIA VIX',
+     'NIFTY 100',
+    'NIFTY 500',
+    'NIFTY MIDCAP 100',
+    'NIFTY MIDCAP 50',
+    'NIFTY INFRA']
+
+    index_quote_list = []
+    
+   
+    for index in index_list:
+        
+        print(quote = nse.get_index_quote(index))
+
+        #if quote != None:
+            #index_quote_list.append(quote)
+        
+    
 
     r = requests.get(url)
     data = r.json()
     
-    data_list = []
+   
     
    
-    for i in data['Time Series (Daily)']:
-        if i >= '2022-01-01':
-            myDict={}
-            myDict["timeline"] = i
-            myDict["data"] = data['Time Series (Daily)'][i]
-            data_list.append(myDict)
-        else:
-            break
+    
     
     context = { 
-        "datas": data_list
+        "datas": json.load(index_quote_list)
 
      } 
         

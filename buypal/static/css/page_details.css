@@ -1,0 +1,19 @@
+.below_div
+{
+    border-top: rgb(212, 212, 208) solid 1px;
+    
+}
+
+.inpage_nav li a
+{
+    
+   
+}
+
+.inpage_nav li a:hover
+{
+    color: rgb(228, 151, 9);
+    -webkit-transition: 500ms ease all;
+  transition: 500ms ease all;
+   
+}
