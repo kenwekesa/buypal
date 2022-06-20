@@ -78,14 +78,15 @@
    </div>
    -->
 <h2>NSE Indices</h2>
-    <div class="row flex-row flex-nowrap" style ="overflow-x: scroll; margin-right:5px">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+    <div class="row flex-row flex-nowrap" style ="overflow-x: scroll; margin-right:5px" id="nse_div">
+        
         {% for data in datas %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" >
             <div class="card card-block">
 
             <div class="card-body">
                     <h4 class="card-title">{{data.name}}</h4>
-                    {% if data.change <0 %}
+                    {% if data.change < 0 %}
                     <p class="card-text" id = "card_textt"> {{data.lastPrice}}  <i style="font-size: 23px; color: red; position: absolute; margin-right:9px; right:0;" class="fa fa-sort-asc" aria-hidden="true"></i></p>
                       <p id="change" style="color:red">212(73.453%%)</p>
                       {% else %}
@@ -95,8 +96,9 @@
                 </div>
             
             </div>
+            </div>
           {% endfor %}
-        </div>
+        
         
     </div>
 
@@ -118,6 +120,50 @@
         </a>
       </div>
     </footer>
+
+
+
+
+
+    <script>
+      $(document).ready(function(){
+
+    function sendRequest(){
+          $.ajax({
+            type: "GET",
+            url: "{% url 'get-nse' %}",
+            data: {
+                
+                'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
+            },
+	   //success: function(data) { // on success..
+              //  console.log(data)
+              
+           // }
+            success: searchSuccess,
+            dataType: 'html'
+        });
+    };
+    sendRequest();
+     // Call AJAX every 5 mins (in milliseconds)
+});
+
+function searchSuccess(data, textStatus, jqXHR)
+{
+   $('#nse_div').html(data)
+ 
+}
+const cardsContainer = document.getElementById('cards_row');
+const containerScrollWidth = cardsContainer.scrollWidth;
+
+window.addEventListener('load', () => {
+  self.setInterval(() => {
+    if (cardsContainer.scrollLeft !== containerScrollWidth) {
+      cardsContainer.scrollTo(cardsContainer.scrollLeft + 431, 0);
+    }
+  }, 7200);
+});
+</script>    
 
 <script>
         
