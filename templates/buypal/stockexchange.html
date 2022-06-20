@@ -1,6 +1,7 @@
  {% extends 'base.html' %} {% load static %} {% load my_filters %}
 {% block css %}
 <link href="{% static 'css/news.css' %}" rel="stylesheet" />
+<link href="{% static 'css/animations.css' %}" rel="stylesheet" />
 {% endblock %}
 {% block content %}
 
@@ -43,46 +44,13 @@
 
 
 <div class="container table_container mt-4">
-    <!--<div class="row" style="width: 100%">
-       <h3 style="margin: auto;">STATE BANK OF INDIA BSE</h3>
-    </div>
-    <br/>
-     <div class="row mb-4">
 
-     
-        <table class="table table-striped table-dark">
-          <tr>
-                <th  border="1"> Time Series(Day)</th>
-                <th> Open</th>
-                <th> High</th>
-                <th> Low</th>
-                <th>Close</th>
-                <th> Volume</th>
-           </tr>
-{% for data in datas %}
-         
-     
-           <tr>
-                <td>{{data.timeline}}</td>
-                <td> {{data.data|getkey:'1. open'}}</td>
-                <td> {{data.data|getkey:'2. high'}} </td>
-                <td> {{data.data|getkey:'3. low'}}</td>
-                <td>{{data.data|getkey:'4. close'}}</td>
-                <td> {{data.data|getkey:'5. volume'}}</td>
-           </tr>
-         {% endfor %}
-         
-           </table>
-
-           
-   </div>
-   -->
 <h2>NSE Indices</h2>
     <div class="row flex-row flex-nowrap" style ="overflow-x: scroll; margin-right:5px" id="nse_div">
         
         {% for data in datas %}
         <div class="col-12 col-sm-6 col-md-4 col-lg-3" >
-            <div class="card card-block">
+            <div class="card card-block ">
 
             <div class="card-body">
                     <h4 class="card-title">{{data.name}}</h4>
@@ -98,6 +66,24 @@
             </div>
             </div>
           {% endfor %}
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3" >
+            <div class="card card-block border-0 flex-fill">
+
+            <div class="card-body">
+              <div class="animations_wrapper">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="shadow"></div>
+                <div class="shadow"></div>
+                <div class="shadow"></div>
+                
+            </div>
+                </div>
+            
+            </div>
+            </div>
+          
         
         
     </div>

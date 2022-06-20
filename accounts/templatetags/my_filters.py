@@ -14,7 +14,7 @@ def to_int(value):
 
 @register.filter
 def is_negative(val):
-    if abs(float(val))< 0:
+    if float(val)< 0:
         return True
     else:
         return False

@@ -218,7 +218,23 @@ def stockexchange_view(request):
     #url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=SBIN.BSE&interval=5min&apikey='+ALPHA_VINTAGE_API_KEY
     #url = 'https://fmpcloud.io/api/v3/historical-price-full/AAPL?serietype=line&apikey=27fbd95a470a84bdbc9b4102a4818bd6'
     
+    nse = Nse()
+    index_list = [
+    'NIFTY 50',
+    'NIFTY NEXT 50',
+    'NIFTY100 LIQ 15'
+     ]
+     
+
+    index_quote_list = []
     
+    for index in index_list:
+        quote = nse.get_index_quote(index)
+        print(quote)
+
+        if quote != None:
+            index_quote_list.append(quote)
+        
     
     #index_list = nse.get_index_list()
 
@@ -228,6 +244,11 @@ def stockexchange_view(request):
 
     #r = requests.get(url)
     #data = r.json()
+    context = { 
+        "datas": index_quote_list #json.load(index_quote_list) 
+
+     } 
+
     
    
     
@@ -236,7 +257,7 @@ def stockexchange_view(request):
     
     
         
-    return render(request, 'buypal/stockexchange.html')
+    return render(request, 'buypal/stockexchange.html', context)
 
 def get_nse_data_view(request):
     nse = Nse()

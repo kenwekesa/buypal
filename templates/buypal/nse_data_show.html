@@ -5,13 +5,15 @@
 
         <div class="card-body">
                 <h4 class="card-title">{{data.name}}</h4>
-                {% if data.change|is_negative %}
-                <p class="card-text" id = "card_textt"> {{data.lastPrice}}  <i style="font-size: 23px; color: red; position: absolute; margin-right:9px; right:0;" class="fa fa-sort-dsc" aria-hidden="true"></i></p>
+                {% if data.pChange|is_negative %}
+                <p class="card-text" id = "card_textt"> {{data.lastPrice}}  <i style="font-size: 23px; color: red; position: absolute; margin-right:9px; right:0;" class="fas fa-sort-down" aria-hidden="true"></i></p>
                   <p id="change" style="color:red">212(73.453%%)</p>
+                  
                   {% else %}
                   <p class="card-text" id = "card_textt"> {{data.lastPrice}}  <i style="font-size: 23px; color: green; position: absolute; margin-right:9px; right:0;" class="fa fa-sort-asc" aria-hidden="true"></i></p>
               <p id="change" style="color:green">{{data.change}}({{data.pChange}}%)</p>
-                  {% endif %}
+ 
+                  {% endif %} 
             </div>
         
         </div>
