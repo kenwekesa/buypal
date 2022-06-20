@@ -28,6 +28,7 @@ urlpatterns = [
     path("user-home", mainviews.userdashboard_view, name="user-home"),
     path('scrape/', mainviews.scrape, name="scrape"),
      path("news", mainviews.news_view, name="news"),
+    path("nse", mainviews.get_nse_data_view, name="get-nse"),    
      path("stockexchange", mainviews.stockexchange_view, name="stock-exchange"),
      path("viewnews", mainviews.view_news_view, name="read-news"),
      path("updatenews", mainviews.get_news_view, name="update-card-news"),

@@ -219,10 +219,52 @@ def stockexchange_view(request):
     #url = 'https://fmpcloud.io/api/v3/historical-price-full/AAPL?serietype=line&apikey=27fbd95a470a84bdbc9b4102a4818bd6'
     
     nse = Nse()
+    index_list = [
+    'NIFTY 50',
+    'NIFTY NEXT 50',
+    'NIFTY100 LIQ 15'
+     ]
+     
+
+    index_quote_list = []
+    
+    for index in index_list:
+        quote = nse.get_index_quote(index)
+        print(quote)
+
+        if quote != None:
+            index_quote_list.append(quote)
+        
     
     #index_list = nse.get_index_list()
 
-    index_list = [
+   
+        
+    
+
+    #r = requests.get(url)
+    #data = r.json()
+    context = { 
+        "datas": index_quote_list #json.load(index_quote_list) 
+
+     } 
+
+    
+   
+    
+   
+    
+    
+    
+        
+    return render(request, 'buypal/stockexchange.html', context)
+
+def get_nse_data_view(request):
+    nse = Nse()
+    
+    index_list = nse.get_index_list()
+
+    '''index_list = [
     'NIFTY 50',
     'NIFTY NEXT 50',
     'NIFTY100 LIQ 15',
@@ -233,21 +275,21 @@ def stockexchange_view(request):
     'NIFTY MIDCAP 100',
     'NIFTY MIDCAP 50',
     'NIFTY INFRA']
-
+     '''
     index_quote_list = []
     
-   
     for index in index_list:
         
-        print(quote = nse.get_index_quote(index))
+        quote = nse.get_index_quote(index)
+        print(quote)
 
-        #if quote != None:
-            #index_quote_list.append(quote)
+        if quote != None:
+            index_quote_list.append(quote)
         
     
 
-    r = requests.get(url)
-    data = r.json()
+    #r = requests.get(url)
+    #data = r.json()
     
    
     
@@ -255,12 +297,11 @@ def stockexchange_view(request):
     
     
     context = { 
-        "datas": json.load(index_quote_list)
+        "datas": index_quote_list #json.load(index_quote_list) 
 
      } 
-        
-    return render(request, 'buypal/stockexchange.html',context)
 
+    return render(request, 'buypal/nse_data_show.html',context)
 
 def login_view(request):
     #context = {'posts': Post.objects.all()}
