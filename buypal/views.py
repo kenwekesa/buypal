@@ -218,6 +218,7 @@ def stockexchange_view(request):
     #url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=SBIN.BSE&interval=5min&apikey='+ALPHA_VINTAGE_API_KEY
     #url = 'https://fmpcloud.io/api/v3/historical-price-full/AAPL?serietype=line&apikey=27fbd95a470a84bdbc9b4102a4818bd6'
     
+    """
     nse = Nse()
     index_list = [
     'NIFTY 50',
@@ -235,20 +236,31 @@ def stockexchange_view(request):
         if quote != None:
             index_quote_list.append(quote)
         
-    
+    """
     #index_list = nse.get_index_list()
 
-   
+    session = requests.Session()
+    session.headers = {"User-Agent": "Googlebot/2.1 (+http://www.googlebot.com/bot.html)"} 
+    url = "https://www.sharekhan.com/market/market-indices/indices/indian-indices"
+    headers = requests.utils.default_headers()
+    headers.update({
+    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0',
+     })
+    content = requests.get(url, verify=False).content
+    soup = BSoup(content, "html.parser")
+    
+    nse_content = soup.find_all('div',{"class","proTab"}).find('div',{"class","dataTables_wrapper"})
+    print(nse_content)
         
     
 
     #r = requests.get(url)
     #data = r.json()
-    context = { 
+    """context = { 
         "datas": index_quote_list #json.load(index_quote_list) 
 
      } 
-
+     """
     
    
     
@@ -257,7 +269,7 @@ def stockexchange_view(request):
     
     
         
-    return render(request, 'buypal/stockexchange.html', context)
+    return render(request, 'buypal/stockexchange.html')
 
 def get_nse_data_view(request):
     nse = Nse()
