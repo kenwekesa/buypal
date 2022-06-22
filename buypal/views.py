@@ -240,17 +240,22 @@ def stockexchange_view(request):
     #index_list = nse.get_index_list()
 
     session = requests.Session()
-    session.headers = {"User-Agent": "Googlebot/2.1 (+http://www.googlebot.com/bot.html)"} 
-    url = "https://www.sharekhan.com/market/market-indices/indices/indian-indices"
+    headers = {"User-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44"} 
+    #url = "https://www.sharekhan.com/market/market-indices/indices/indian-indices"
+    url = "https://www.nseindia.com/market-data/live-market-indices"
+
     headers = requests.utils.default_headers()
     headers.update({
-    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0',
+    "User-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44"
      })
-    content = requests.get(url, verify=False).content
+    content = requests.get(url, headers=headers).content
     soup = BSoup(content, "html.parser")
     
-    nse_content = soup.find_all('div',{"class","proTab"}).find('div',{"class","dataTables_wrapper"})
-    print(nse_content)
+    nse_content = soup.find_all('div',{"class","container-fluid"})
+
+    for dataa in nse_content:
+        table = dataa.find('table',{"class","common_table"})
+        print(table)
         
     
 
