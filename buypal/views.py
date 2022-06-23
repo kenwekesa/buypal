@@ -239,24 +239,30 @@ def stockexchange_view(request):
     """
     #index_list = nse.get_index_list()
 
+    #I WANNA USE SELENIIUM HERE MEEEEEEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
     session = requests.Session()
     headers = {"User-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44"} 
     #url = "https://www.sharekhan.com/market/market-indices/indices/indian-indices"
-    url = "https://www.nseindia.com/market-data/live-market-indices"
+    #url = "https://www.nseindia.com/market-data/live-market-indices"
+    url = "https://www.nseindia.com/api/allIndices?csv=true"
 
-    headers = requests.utils.default_headers()
+    
     headers.update({
     "User-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44"
      })
-    content = requests.get(url, headers=headers).content
-    soup = BSoup(content, "html.parser")
-    
-    nse_content = soup.find_all('div',{"class","container-fluid"})
+    content = requests.get(url, headers=headers)
 
-    for dataa in nse_content:
-        table = dataa.find('table',{"class","common_table"})
-        print(table)
-        
+   
+   
+    soup = BSoup(content.text, "html.parser")
+    print(content.content)
+    
+    #nse_content = soup.find('div', {"class","live_mkt_watch"}).find('div',{"class","container-fluid"}).find('div',{"class","customTable-width"})
+
+  
+
+ 
     
 
     #r = requests.get(url)
