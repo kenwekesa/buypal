@@ -240,7 +240,19 @@ def stockexchange_view(request):
     #index_list = nse.get_index_list()
 
     #I WANNA USE SELENIIUM HERE MEEEEEEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
+    baseurl = "https://www.nseindia.com/"
+    url = f"https://www.nseindia.com/api/allIndices"
+    headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, '
+                         'like Gecko) '
+                         'Chrome/80.0.3987.149 Safari/537.36',
+           'accept-language': 'en,gu;q=0.9,hi;q=0.8', 'accept-encoding': 'gzip, deflate, br'}
+    session = requests.Session()
+    requst = session.get(baseurl, headers=headers, timeout=5)
+    cookies = dict(requst.cookies)
+    response = session.get(url, headers=headers, timeout=5, cookies=cookies)
+    print(response.json())
+    #-----------------------------
+    """
     session = requests.Session()
     headers = {"User-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44"} 
     #url = "https://www.sharekhan.com/market/market-indices/indices/indian-indices"
@@ -252,9 +264,10 @@ def stockexchange_view(request):
     "User-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44"
      })
     content = requests.get(url, headers=headers)
-
    
+    print(content.text)
    
+    data = json.loads(content.text)
     soup = BSoup(content.text, "html.parser")
     print(content.content)
     
@@ -267,11 +280,12 @@ def stockexchange_view(request):
 
     #r = requests.get(url)
     #data = r.json()
-    """context = { 
-        "datas": index_quote_list #json.load(index_quote_list) 
+    """
+    context = { 
+        "datum": response.json() #json.load(index_quote_list) 
 
      } 
-     """
+     
     
    
     
@@ -280,7 +294,7 @@ def stockexchange_view(request):
     
     
         
-    return render(request, 'buypal/stockexchange.html')
+    return render(request, 'buypal/stockexchange.html', context)
 
 def get_nse_data_view(request):
     nse = Nse()

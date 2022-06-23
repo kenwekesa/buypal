@@ -48,10 +48,52 @@
 <h2>NSE Indices</h2>
     <div class="row flex-row flex-nowrap" style ="overflow-x: scroll; margin-right:5px" id="nse_div">
         
-        {% for data in datas %}
+
+
+
+      <!----------------------------Table-------------------------->
+      <table class="custom-table">
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Last</th>
+                <th>Variation</th>
+                <th>PercentaChange</th>
+                <th>Open</th>
+                <th>High</th>
+                <th>Low</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+          {% for data in datum.data %}
+            
+            <tr class="toggler toggler1">
+                <td >{{data.index}}</td>
+                <td>{{data.last}}</td>
+                <td>{{data.variation}}</td>
+                <td>{{data.percentChange}}</td>
+                <td>{{data.open}}</td>
+                <td>{{data.high}}</td>
+                <td>{{data.low}}</td>
+
+                
+            </tr>
+            {% endfor %}
+
+            </tbody>
+            </table>
+      <!---------------------------------Table------------------------------>
+
+
+
+
+
+
+        {% for data in datum.data %}
         <div class="col-12 col-sm-6 col-md-4 col-lg-3" >
             <div class="card card-block ">
-
+              <p>{{data}}</p>
             <div class="card-body">
                     <h4 class="card-title">{{data.name}}</h4>
                     {% if data.change < 0 %}
