@@ -247,7 +247,7 @@ def stockexchange_view(request):
                          'Chrome/80.0.3987.149 Safari/537.36',
            'accept-language': 'en,gu;q=0.9,hi;q=0.8', 'accept-encoding': 'gzip, deflate, br'}
     session = requests.Session()
-    requst = session.get(baseurl, headers=headers, timeout=5)
+    requst = session.get(baseurl, headers=headers, timeout=20)
     cookies = dict(requst.cookies)
     response = session.get(url, headers=headers, timeout=5, cookies=cookies)
     print(response.json())
