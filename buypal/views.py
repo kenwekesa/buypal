@@ -214,7 +214,7 @@ def view_news_view(request):
 
 def stockexchange_view(request):
     #context = {'posts': Post.objects.all()}
-    url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=SBIN.BSE&outputsize=full&apikey="+ALPHA_VINTAGE_API_KEY
+    #url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=SBIN.BSE&outputsize=full&apikey="+ALPHA_VINTAGE_API_KEY
     #url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=SBIN.BSE&interval=5min&apikey='+ALPHA_VINTAGE_API_KEY
     #url = 'https://fmpcloud.io/api/v3/historical-price-full/AAPL?serietype=line&apikey=27fbd95a470a84bdbc9b4102a4818bd6'
     
@@ -239,7 +239,7 @@ def stockexchange_view(request):
     """
     #index_list = nse.get_index_list()
 
-    #I WANNA USE SELENIIUM HERE MEEEEEEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   
     baseurl = "https://www.nseindia.com/"
     url = f"https://www.nseindia.com/api/allIndices"
     headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, '

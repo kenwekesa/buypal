@@ -1,1 +1,1 @@
-web: gunicorn buypal.wsgi --timeout 15 --log-file -
+web: gunicorn buypal.wsgi --timeout 0 --log-file -
